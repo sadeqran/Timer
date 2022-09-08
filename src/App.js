@@ -1,25 +1,50 @@
-import logo from './logo.svg';
-import './App.css';
+import React , {useEffect,useState} from 'react';
+//import ReactDOM from 'react-dom';
+import './style.css'
+import Hello from './Hello';
+import Timer from './Timer';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+
+
+// class App extends React.Component {
+//     constructor(){
+//         super();
+//         this.state={
+//             title : "سلام دوستان عزیزم"
+//         }
+//     }
+
+//     handleSetTitle = ()=>{
+//         this.setState({
+//             title:"به کدیاد خوش آمدید"
+//         })
+//     }
+
+const App = () =>{
+const [title] = useState("تایمر");
+const [isLight , setIsLight] = useState(false);
+
+useEffect(()=>{
+    console.log("useEffect");
+    return()=>{}
+},[isLight])
+
+const handleSetIsLight =()=>{
+    setIsLight(!isLight)
 }
+
+
+return(
+
+    <div className="main" style={{ background:isLight ? "gray": "black" }}>
+                <Hello title={title} />        
+            <Timer isLight={isLight} handleSetIsLight={handleSetIsLight}/>
+        </div>
+       
+    ) 
+}
+
+
 
 export default App;
