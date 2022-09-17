@@ -66,7 +66,7 @@ class Timer extends React.Component {
     return (
       <>
         <div className="react ">
-          <ReactSymbol/>
+          <ReactSymbol />
 
           <h2 className="timer">
             {`${h > 9 ? h : "0" + h} : ${m > 9 ? m : "0" + m} : ${
@@ -74,13 +74,10 @@ class Timer extends React.Component {
             }`}
           </h2>
 
-          <ReactSymbol/>
-
-
+          <ReactSymbol />
         </div>
 
         <div className="box">
-
           <div onClick={this.startInterval}>
             <Container title="play" icon="fa-play" />
           </div>

@@ -1,10 +1,7 @@
-import React , {useEffect,useState} from 'react';
-import './style.css'
-import Hello from './Hello';
-import Timer from './Timer';
-
-
-
+import React, { useEffect, useState } from "react";
+import "./style.css";
+import Hello from "./Hello";
+import Timer from "./Timer";
 
 // class App extends React.Component {
 //     constructor(){
@@ -20,30 +17,25 @@ import Timer from './Timer';
 //         })
 //     }
 
-const App = () =>{
-const [title] = useState("تایمر");
-const [isLight , setIsLight] = useState(false);
+const App = () => {
+  const [title] = useState("تایمر");
+  const [isLight, setIsLight] = useState(false);
 
-useEffect(()=>{
+  useEffect(() => {
     console.log("useEffect");
-    return()=>{}
-},[isLight])
+    return () => {};
+  }, [isLight]);
 
-const handleSetIsLight =()=>{
-    setIsLight(!isLight)
-}
+  const handleSetIsLight = () => {
+    setIsLight(!isLight);
+  };
 
-
-return(
-
-    <div className="main" style={{ background:isLight ? "gray": "black" }}>
-                <Hello title={title} />        
-            <Timer isLight={isLight} handleSetIsLight={handleSetIsLight}/>
-        </div>
-       
-    ) 
-}
-
-
+  return (
+    <div className="main" style={{ background: isLight ? "gray" : "black" }}>
+      <Hello title={title} />
+      <Timer isLight={isLight} handleSetIsLight={handleSetIsLight} />
+    </div>
+  );
+};
 
 export default App;
