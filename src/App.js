@@ -1,5 +1,4 @@
 import React , {useEffect,useState} from 'react';
-//import ReactDOM from 'react-dom';
 import './style.css'
 import Hello from './Hello';
 import Timer from './Timer';
@@ -17,7 +16,7 @@ import Timer from './Timer';
 
 //     handleSetTitle = ()=>{
 //         this.setState({
-//             title:"به کدیاد خوش آمدید"
+//             title:"به سایت مارس خوش آمدید"
 //         })
 //     }
 

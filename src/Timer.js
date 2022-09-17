@@ -1,152 +1,105 @@
+import React from "react";
+import "./style.css";
+import Container from "./Container";
+import ReactSymbol from "./ReactSymbol";
 
-import React from 'react';
-//import ReactDOM from 'react-dom';
-import './style.css'
 var interval;
 
 class Timer extends React.Component {
-
-  constructor(){
-
+  constructor() {
     super();
     this.state = {
-    
-      hour:0 ,
-      minute:0,
-      second:0,
-      isStart:false
-    }
+      hour: 0,
+      minute: 0,
+      second: 0,
+      isStart: false,
+    };
   }
 
- startInterval =()=>{
-if (this.state.isStart === false){
-this.setState({
-  isStart: true
-})
-}
+  startInterval = () => {
+    if (this.state.isStart === false) {
+      this.setState({
+        isStart: true,
+      });
+    }
 
-interval = setInterval(()=>{
-  this.setState({
-     second : this.state.second +1
-  })
-if (this.state.second === 60){
-this.setState({
-  second : 0,
-  minute : this.state.minute +1
-})
+    interval = setInterval(() => {
+      this.setState({
+        second: this.state.second + 1,
+      });
+      if (this.state.second === 60) {
+        this.setState({
+          second: 0,
+          minute: this.state.minute + 1,
+        });
+      }
 
-}
+      if (this.state.minute === 60) {
+        this.setState({
+          minute: 0,
+          hour: this.state.hour + 1,
+        });
+      }
+    }, 1000);
+  };
 
-if (this.state.minute === 60){
-this.setState({
-  minute :0,
-  hour : this.state.hour +1
-})
+  stopInterval = () => {
+    this.setState({
+      isStart: false,
+    });
+    clearInterval(interval);
+  };
 
+  resetInterval = () => {
+    this.stopInterval();
+    this.setState({
+      hour: 0,
+      minute: 0,
+      second: 0,
+    });
+  };
 
-}
+  render() {
+    let h = this.state.hour;
+    let m = this.state.minute;
+    let s = this.state.second;
+    return (
+      <>
+        <div className="react ">
+          <ReactSymbol/>
 
-} , 1000)
-}
+          <h2 className="timer">
+            {`${h > 9 ? h : "0" + h} : ${m > 9 ? m : "0" + m} : ${
+              s > 9 ? s : "0" + s
+            }`}
+          </h2>
 
-
-
- 
-  
-stopInterval = ()=>{
-  this.setState({
-    isStart: false
-  })
-  clearInterval(interval);
-}
-   
-resetInterval = ()=>{
-  this.stopInterval();
-  this.setState({
-    hour:0,
-    minute:0,
-    second:0,
-  })
-}
-      
-render(){
-  let h = this.state.hour
-  let m = this.state.minute
-  let s = this.state.second
-  return(
-    <>
-    <div class="react ">
-
-    <div class="man left">
-    <div class="ellipse" id="one"></div>
-    <div class="ellipse" id="two"></div>
-    <div class="ellipse" id="three"></div>
-    <div class="ball"></div>
-  </div>
+          <ReactSymbol/>
 
 
-
-      <h2 className="timer">
-      {`${h > 9 ? h : "0"+h} : ${m > 9 ? m : "0"+m} : ${s > 9 ? s : "0"+s}`}
-        </h2>
-
-        <div class="man right">
-    <div class="ellipse" id="one"></div>
-    <div class="ellipse" id="two"></div>
-    <div class="ellipse" id="three"></div>
-    <div class="ball"></div>
-  </div>
-
-</div>
-
-
-        <div class="box">
-
-
-       <div className="container play" onClick={this.startInterval}>
-  
-
-  <div className="loader"><span></span></div>
-  <div className="loader"><span></span></div>
-  <div className="loader"><div class="i"></div></div>
-  <div className="loader"><div class="i"></div></div>
-  <i className="fa-solid fa-play"></i>  
-  </div>
-
-  <div className="container pause " onClick={this.stopInterval}>
-
-      <div className="loader"><span></span></div>
-      <div className="loader"><span></span></div>
-      <div className="loader"><div class="i"></div></div>
-      <div className="loader"><div class="i"></div></div>
-      <i className="fa-solid fa-pause"></i>
-      </div>
-
-      <div className="container stop " onClick={this.resetInterval}>
-
-        <div className="loader"><span></span></div>
-        <div className="loader"><span></span></div>
-        <div className="loader"><div class="i"></div></div>
-        <div className="loader"><div class="i"></div></div>
-        <i className="fa-solid fa-stop"></i>
         </div>
 
-        <div className="container light " onClick={this.props.handleSetIsLight}>
+        <div className="box">
 
-          <div className="loader"><span></span></div>
-          <div className="loader"><span></span></div>
-          <div className="loader"><div class="i"></div></div>
-          <div className="loader"><div class="i"></div></div>
-          <i className="fa-solid fa-sun"></i>
+          <div onClick={this.startInterval}>
+            <Container title="play" icon="fa-play" />
           </div>
-          
-</div>
 
-       
+          <div onClick={this.stopInterval}>
+            <Container title="pause" icon="fa-pause" />
+          </div>
 
+          <div onClick={this.resetInterval}>
+            <Container title="stop" icon="fa-stop" />
+          </div>
+
+          <div onClick={this.props.handleSetIsLight}>
+            <Container title="light" icon="fa-sun" />
+          </div>
+        </div>
       </>
-    )
+    );
   }
 }
 
-    export default Timer;
+export default Timer;

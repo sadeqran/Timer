@@ -1,296 +1,248 @@
 * {
-    margin: 0 auto;
-    padding: 0;
-    
-    }
-    
-    body {
-    display: flex;
-    background: #000;
-justify-content: center;
-align-items: center;
-width: 100%;
-min-height: 100vh;
-flex-direction: column;
-position: relative;
-    }
-    
-.main{
-    width: 768px;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    color: yellow;
+  margin: 0 auto;
+  padding: 0;
 }
 
-
-.timer{
-    width: 200px;
-    height: 200px;
-    border-radius: 50%;
-    box-shadow: 0 0 20px yellow;
-    align-items: center;
-    justify-content: center;
-    display: flex;
-    background: black;
-    color: rgb(255, 255, 255);
-} 
-
-
-.box{
-    position: relative;
-    display: flex;
-height: 30vh;
-    width: 600px;
-justify-content: center;
-align-items: center;
-
+body {
+  display: flex;
+  background: #000;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  min-height: 100vh;
+  flex-direction: column;
+  position: relative;
 }
 
+.main {
+  width: 768px;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  color: yellow;
+}
 
+.timer {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  box-shadow: 0 0 20px yellow;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  background: black;
+  color: rgb(255, 255, 255);
+}
 
-.container {/* حلقه های ما */
-    position: relative;
-    display: flex;
-    /* width: 65%;فاصله حلقه ها */
-    height: 30vh;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    }
-    .container .loader {
-        /* اندازه و چرخش حلقه ها*/
-    position:absolute;
-    width: 70px;
-    height: 70px;
-    border-radius: 50%;
-    animation: animate 2s linear infinite;
-    
-    
-    }
-    .container .loader:nth-child(2),
-    .container .loader:nth-child(4){
-        animation-delay: -1s;
-        /* filter: hue-rotate(50deg); */
-    }
-    
-    
-    
-    @keyframes animate {
-    0%{
-        transform: rotate(0deg);
-    }
-    100%{
-        transform: rotate(360deg);
-      
-    }}
-    
-    
-    
-    .container .loader:nth-child(1)::before,
-    .container .loader:nth-child(2)::before
-    {
-    
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 50%;
-    height: 100%;
-    /* رنگ چرخش */
-    background: linear-gradient(to top,transparent, rgb(150,250,150)) no-repeat;
-    background-size:100px 180px  ;
-    border-top-left-radius: 100px;
-    border-bottom-left-radius: 100px;
-    
-    
-    }
-    
-    .container .loader .i {
-    
-    position: absolute;
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 12px;
-    height: 12px;
-    /* رنگ گردی */
-    background: rgb(0, 150, 0);
-    border-radius:50% ;
-    z-index: 100;
-    box-shadow: 0 0 10px rgb(150,250,150),
-    0 0 20px rgb(150,250,150),
-    0 0 30px rgb(150,250,150),
-    0 0 40px rgb(150,250,150),
-    0 0 50px rgb(150,250,150),
-    0 0 60px rgb(150,250,150),
-    0 0 70px rgb(150,250,150),
-    0 0 80px rgb(150,250,150),
-    0 0 90px rgb(150,250,150),
-    0 0 100px rgb(150,250,150);
-    
-    }
-    
-    .container .loader span {
-    
-    position: absolute;
-    inset: 12px;
-    background: green;
-    border-radius: 50%;
-    z-index: 1;
-    
-    
-    }
-    .fa-play , .fa-pause , .fa-stop , .fa-sun
-{
-position: absolute;
-color: black;
-zoom: 1.5;
+.box {
+  position: relative;
+  display: flex;
+  height: 30vh;
+  width: 600px;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  /* حلقه های ما */
+  position: relative;
+  display: flex;
+  /* width: 65%;فاصله حلقه ها */
+  height: 30vh;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+.container .loader {
+  /* اندازه و چرخش حلقه ها*/
+  position: absolute;
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  animation: animate 2s linear infinite;
+}
+.container .loader:nth-child(2),
+.container .loader:nth-child(4) {
+  animation-delay: -1s;
+  /* filter: hue-rotate(50deg); */
+}
+
+@keyframes animate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.container .loader:nth-child(1)::before,
+.container .loader:nth-child(2)::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50%;
+  height: 100%;
+  /* رنگ چرخش */
+  background: linear-gradient(to top, transparent, rgb(150, 250, 150)) no-repeat;
+  background-size: 100px 180px;
+  border-top-left-radius: 100px;
+  border-bottom-left-radius: 100px;
+}
+
+.container .loader .i {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 12px;
+  height: 12px;
+  /* رنگ گردی */
+  background: rgb(0, 150, 0);
+  border-radius: 50%;
+  z-index: 100;
+  box-shadow: 0 0 10px rgb(150, 250, 150), 0 0 20px rgb(150, 250, 150),
+    0 0 30px rgb(150, 250, 150), 0 0 40px rgb(150, 250, 150),
+    0 0 50px rgb(150, 250, 150), 0 0 60px rgb(150, 250, 150),
+    0 0 70px rgb(150, 250, 150), 0 0 80px rgb(150, 250, 150),
+    0 0 90px rgb(150, 250, 150), 0 0 100px rgb(150, 250, 150);
+}
+
+.container .loader span {
+  position: absolute;
+  inset: 12px;
+  background: green;
+  border-radius: 50%;
+  z-index: 1;
+}
+.fa-play,
+.fa-pause,
+.fa-stop,
+.fa-sun {
+  position: absolute;
+  color: black;
+  zoom: 1.5;
 }
 .pause .loader:nth-child(1)::before,
-.pause .loader:nth-child(2)::before{
-    background: linear-gradient(to top,transparent, rgb(250,150,150)) no-repeat;
+.pause .loader:nth-child(2)::before {
+  background: linear-gradient(to top, transparent, rgb(250, 150, 150)) no-repeat;
 }
 .pause .loader .i {
-    background:rgb(165, 0, 0);
+  background: rgb(165, 0, 0);
 
-box-shadow: 0 0 10px rgb(250,150,150),
-0 0 20px rgb(250,150,150),
-0 0 30px rgb(250,150,150),
-0 0 40px rgb(250,150,150),
-0 0 50px rgb(250,150,150),
-0 0 60px rgb(250,150,150),
-0 0 70px rgb(250,150,150),
-0 0 80px rgb(250,150,150),
-0 0 90px rgb(250,150,150),
-0 0 100px rgb(250,150,150);
+  box-shadow: 0 0 10px rgb(250, 150, 150), 0 0 20px rgb(250, 150, 150),
+    0 0 30px rgb(250, 150, 150), 0 0 40px rgb(250, 150, 150),
+    0 0 50px rgb(250, 150, 150), 0 0 60px rgb(250, 150, 150),
+    0 0 70px rgb(250, 150, 150), 0 0 80px rgb(250, 150, 150),
+    0 0 90px rgb(250, 150, 150), 0 0 100px rgb(250, 150, 150);
 }
 .pause .loader span {
-    background: red;
-    }
+  background: red;
+}
 
-
-    .stop .loader:nth-child(1)::before,
-    .stop .loader:nth-child(2)::before{
-    background: linear-gradient(to top,transparent, rgb(250, 250, 150)) no-repeat;
+.stop .loader:nth-child(1)::before,
+.stop .loader:nth-child(2)::before {
+  background: linear-gradient(to top, transparent, rgb(250, 250, 150)) no-repeat;
 }
 .stop .loader .i {
-    background:rgb(165, 165, 0);
+  background: rgb(165, 165, 0);
 
-box-shadow: 0 0 10px rgb(236, 250,150),
-0 0 20px rgb(250, 250,150),
-0 0 30px rgb(250, 250,150),
-0 0 40px rgb(250, 250,150),
-0 0 50px rgb(250, 250,150),
-0 0 60px rgb(250, 250,150),
-0 0 70px rgb(250, 250,150),
-0 0 80px rgb(250, 250,150),
-0 0 90px rgb(250, 250,150),
-0 0 100px rgb(250, 250,150);
+  box-shadow: 0 0 10px rgb(236, 250, 150), 0 0 20px rgb(250, 250, 150),
+    0 0 30px rgb(250, 250, 150), 0 0 40px rgb(250, 250, 150),
+    0 0 50px rgb(250, 250, 150), 0 0 60px rgb(250, 250, 150),
+    0 0 70px rgb(250, 250, 150), 0 0 80px rgb(250, 250, 150),
+    0 0 90px rgb(250, 250, 150), 0 0 100px rgb(250, 250, 150);
 }
 .stop .loader span {
-    background: yellow;
-    }
+  background: yellow;
+}
 
-
-
-    .light .loader:nth-child(1)::before,
-    .light .loader:nth-child(2)::before{
-    background: linear-gradient(to top,transparent, rgb(150, 200, 250)) no-repeat;
+.light .loader:nth-child(1)::before,
+.light .loader:nth-child(2)::before {
+  background: linear-gradient(to top, transparent, rgb(150, 200, 250)) no-repeat;
 }
 .light .loader .i {
-    background:rgb(150, 150, 200);
+  background: rgb(150, 150, 200);
 
-box-shadow: 0 0 10px rgb(150, 200, 250),
-0 0 20px  rgb(150, 200, 250),
-0 0 30px  rgb(150, 200, 250),
-0 0 40px  rgb(150, 200, 250),
-0 0 50px  rgb(150, 200, 250),
-0 0 60px  rgb(150, 200, 250),
-0 0 70px rgb(150, 200, 250),
-0 0 80px  rgb(150, 200, 250),
-0 0 90px  rgb(150, 200, 250),
-0 0 100px  rgb(150, 200, 250);
+  box-shadow: 0 0 10px rgb(150, 200, 250), 0 0 20px rgb(150, 200, 250),
+    0 0 30px rgb(150, 200, 250), 0 0 40px rgb(150, 200, 250),
+    0 0 50px rgb(150, 200, 250), 0 0 60px rgb(150, 200, 250),
+    0 0 70px rgb(150, 200, 250), 0 0 80px rgb(150, 200, 250),
+    0 0 90px rgb(150, 200, 250), 0 0 100px rgb(150, 200, 250);
 }
 .light .loader span {
-    background: rgb(150, 200, 250);
-    }
+  background: rgb(150, 200, 250);
+}
 
+.react {
+  display: flex;
+  height: 30vh;
+  width: 100%;
+}
 
+.man {
+  min-height: 30vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
-    .react{
-        display: flex;
-        height: 30vh;
-        width: 100%;
-        
-        }
+  animation: roll 15s linear 0.5s infinite;
+}
 
+.ellipse {
+  position: absolute;
+  height: 12vw;
+  width: 4vw;
+  border-radius: 50%;
+  border: 0.6vw solid #5ed3f3;
+  box-shadow: 0 0 10px #7c7cff, 0 0 20px #7c7cff;
+  animation: ell 3s ease 0.5s infinite;
+}
 
-        .man{
-            min-height:30vh;
-            display:flex;
-            justify-content:center;
-            align-items:center;
-           
-            animation: roll 15s linear 0.5s infinite;
-          }
-          
-          .ellipse{
-            position:absolute;
-            height:12vw;width:4vw;
-            border-radius:50%;
-            border:0.6vw solid #5ed3f3;
-            box-shadow:0 0 10px #7c7cff, 0 0 20px #7c7cff;
-            animation: ell 3s ease 0.5s infinite;
-          
-          }
-          
-          #one{ transform:rotate(30deg)
-          }
-          
-          #two{
-            transform:rotate(-30deg)
-          }
-          
-          #three{
-            transform:rotate(90deg)
-          }
-          
-          .ball{
-            position:absolute;
-            width:2.5vw;
-            height:2.5vw;
-            border-radius:50%;
-            background-color:#5ed3f3;
-            box-shadow:0 0 10px #7c7cff, 0 0 20px #7c7cff, 0 0 30px #7c7cff, 0 0 40px #7c7cff, 0 0 50px #7c7cff, 0 0 60px #7c7cff, 0 0 100px #7c7cff;
-            animation: ball 3s ease 0.5s infinite;
-          
-          }
-          
-          
-          @keyframes roll{
-            from{
-              transform:rotate(0deg)
-            }
-            to{
-              transform:rotate(360deg)
-            }
-          }
-          
-          @keyframes ell{
-            0%{
-              border:0.6vw solid #5ed3f3;
-          
-            }
-          
-            50%{
-              border:0.6vw solid #000;
-          
-            }
-          100%{
-              border:0.6vw solid #5ed3f3;
-          
-            }
-          }
+#one {
+  transform: rotate(30deg);
+}
+
+#two {
+  transform: rotate(-30deg);
+}
+
+#three {
+  transform: rotate(90deg);
+}
+
+.ball {
+  position: absolute;
+  width: 2.5vw;
+  height: 2.5vw;
+  border-radius: 50%;
+  background-color: #5ed3f3;
+  box-shadow: 0 0 10px #7c7cff, 0 0 20px #7c7cff, 0 0 30px #7c7cff,
+    0 0 40px #7c7cff, 0 0 50px #7c7cff, 0 0 60px #7c7cff, 0 0 100px #7c7cff;
+  animation: ball 3s ease 0.5s infinite;
+}
+
+@keyframes roll {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes ell {
+  0% {
+    border: 0.6vw solid #5ed3f3;
+  }
+
+  50% {
+    border: 0.6vw solid #000;
+  }
+  100% {
+    border: 0.6vw solid #5ed3f3;
+  }
+}
