@@ -18,7 +18,7 @@ import Timer from "./Timer";
 //     }
 
 const App = () => {
-  const [title] = useState("تایمر");
+  const [title] = useState("Timer");
   const [isLight, setIsLight] = useState(false);
 
   useEffect(() => {
